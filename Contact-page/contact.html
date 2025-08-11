@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact NMG Zembeta</title>
+    
+    <!-- Link to your new contact page CSS -->
+    <link rel="stylesheet" href="contact-style.css">
+    
+    <!-- Fonts from the main page for consistency -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="custom-cursor"></div> <!-- Custom cursor from the main page -->
+
+    <!-- Navigation Bar - Reused for consistency -->
+    <nav class="nav">
+        <div class="logo">
+           <a href="index.html">
+                <!-- Circular logo styling will be handled in the CSS -->
+                <img src="../LOGO NMG.png" alt="NMG Zembeta Logo">
+           </a>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="../Homepage/index.html">Home</a>
+           <a href="../About page/about.html">About</a>
+           <a href="index.html#services">Services</a>
+        </div>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="search">🔍</div>
+    </nav>
+
+    <!-- Main Contact Section -->
+    <section id="contact-section" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you! Please fill out the form or use the contact details below to get in touch with our team.</p>
+                <div class="info-item">
+                    <h4>Address</h4>
+                    <p>123 Business Avenue, JHB, South Africa</p>
+                </div>
+                <div class="info-item">
+                    <h4>Phone</h4>
+                    <p>+27 12 345 6789</p>
+                </div>
+                <div class="info-item">
+                    <h4>Email</h4>
+                    <p>info@nmgzembeta.co.za</p>
+                </div>
+                <div class="social-links">
+                    <a href="#">IG</a>
+                    <a href="#">WHATSAPP</a>
+                    <a href="#">EMAIL</a>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper">
+                <!-- The form element that our JavaScript will interact with -->
+                <form id="contactForm" class="contact-form" action="#" method="post">
+                    <h2>Send Us a Message</h2>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
+                    
+                    <button type="submit" class="submit-button">Send Message</button>
+                    <!-- A div to display success or error messages -->
+                    <div id="status-message" class="status-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Reused for consistency -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>Copyright © 2025 NMG Zembeta. All rights reserved. Website made by Jay_k & Kuti.</p>
+        </div>
+    </footer>
+    
+    <!-- Link to your JavaScript file for interactivity -->
+    <script src="contact.js"></script>
+</body>
+</html>

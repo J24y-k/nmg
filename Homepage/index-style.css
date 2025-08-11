@@ -1,4 +1,3 @@
-
 /* ===============================================================================================================================
  * 🎨 Design System; i like this method now because like this we nmo lomger have to vhange colors or font size section by section
  * =============================================================================================================================== */
@@ -8,7 +7,7 @@
   --primary-dark: #2b2d42; /* charcoal blue-gray */
   --secondary-dark: #4a4e69; /* A lighter shade for card backgrounds */
   --primary-color: #84a98c; /* A calm, muted sage green they say */
-  --secondary-color: #ffffff; /*  white for text on dark backgrounds */
+  --secondary-color: #ffffff; /* white for text on dark backgrounds */
   --text-light: #d4d5e2; /* A soft gray for secondary text and details */
   --card-bg: rgba(74, 78, 105, 0.5); /* Semi-transparent background for elements */
   --card-border: rgba(255, 255, 255, 0.1); /* A subtle border for cards */
@@ -137,7 +136,7 @@ h1, h2, h3, h4 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('pexels-tima-miroshnichenko-9574569.jpg') no-repeat center center/cover;
+  background: url('../pexels-tima-miroshnichenko-9574569.jpg') no-repeat center center/cover;
   opacity: 0.7;
   z-index: -1;
   pointer-events: none;
@@ -161,6 +160,14 @@ h1, h2, h3, h4 {
 .logo {
   font-size: 1em;
   margin-right: auto;
+}
+
+/* Fix for the round logo */
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .nav-links {
@@ -195,30 +202,30 @@ h1, h2, h3, h4 {
 
 /* Hamburger menu styling */
 .hamburger-menu {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
 }
 
 .hamburger-menu .bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-light);
-    transition: transform 0.3s ease;
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-light);
+  transition: transform 0.3s ease;
 }
 
 /* Rotate bars when menu is open */
 .hamburger-menu.open .bar:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+  transform: rotate(-45deg) translate(-5px, 6px);
 }
 
 .hamburger-menu.open .bar:nth-child(2) {
-    opacity: 0;
+  opacity: 0;
 }
 
 .hamburger-menu.open .bar:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
 .content {
@@ -240,8 +247,21 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
 }
 
-.hero-subtitle, .tour-button, .hero-overlay {
-  display: none;
+/* Moved these rules down to prevent conflicts */
+.hero-subtitle,
+.tour-button {
+  display: block;
+}
+
+.hero-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(43, 45, 66, 0.7);
+  z-index: 2;
 }
 
 #lottie-animation {
@@ -259,14 +279,14 @@ h1, h2, h3, h4 {
  * ==================================== */
 
 .about-section {
-    padding: 0;
-    background-color: var(--primary-dark);
-    color: var(--text-light);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  padding: 0;
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .about-wrapper {
@@ -522,7 +542,8 @@ h1, h2, h3, h4 {
   gap: var(--space-lg);
 }
 
-.footer-form, .footer-info {
+.footer-form,
+.footer-info {
   width: 50%;
   background: var(--secondary-dark);
   border: 1px solid var(--card-border);
@@ -534,7 +555,8 @@ h1, h2, h3, h4 {
   transform: none !important;
 }
 
-.form-title, .info-title {
+.form-title,
+.info-title {
   font-size: var(--font-size-heading-sm);
   margin-bottom: var(--space-md);
 }
@@ -682,7 +704,7 @@ h1, h2, h3, h4 {
     padding: 15px 20px;
   }
   .nav .logo {
-      margin-right: 0;
+    margin-right: 0;
   }
   .nav-links {
     position: fixed;
@@ -699,13 +721,13 @@ h1, h2, h3, h4 {
     z-index: 99;
   }
   .nav-links a {
-      margin-top: var(--space-sm);
+    margin-top: var(--space-sm);
   }
   .nav-links.active {
-      transform: translateY(0);
+    transform: translateY(0);
   }
   .hamburger-menu {
-      display: flex;
+    display: flex;
   }
   .search {
     display: none;
@@ -720,8 +742,9 @@ h1, h2, h3, h4 {
     border-right: none;
     border-bottom: 1px solid var(--card-border);
   }
-  .services-left, .services-right {
-      border-radius: 0;
+  .services-left,
+  .services-right {
+    border-radius: 0;
   }
   .testimonials-carousel {
     height: auto;
@@ -734,7 +757,8 @@ h1, h2, h3, h4 {
   .footer-content {
     flex-direction: column;
   }
-  .footer-form, .footer-info {
+  .footer-form,
+  .footer-info {
     width: 100%;
   }
 }
