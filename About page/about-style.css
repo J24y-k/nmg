@@ -1,0 +1,184 @@
+/* ====================================
+ * 🚀 Hero Section
+ * ==================================== */
+.about-hero {
+    /* The hero on the about page is a bit shorter than the main index hero */
+    min-height: 50vh;
+    height: auto;
+    background: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 100px; /* Add space for the fixed nav bar */
+}
+
+.about-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(43, 45, 66, 0.7); /* Same overlay as the index page */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--secondary-color);
+}
+
+.hero-title {
+    font-size: var(--font-size-heading-lg);
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-heading-sm);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ====================================
+ * ℹ️ Sections
+ * ==================================== */
+
+.section {
+    padding: var(--space-lg) 0;
+    background-color: var(--primary-dark);
+}
+
+.section-title {
+    font-size: var(--font-size-heading-md);
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: var(--space-lg);
+}
+
+.company-overview .card {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.company-overview .card p {
+    font-size: 1.1rem;
+}
+
+/* Vision & Mission */
+.vision-mission {
+    background-color: var(--secondary-dark);
+}
+
+.vision-mission-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+}
+
+.vision, .mission {
+    flex: 1;
+    min-width: 300px;
+}
+
+.card-title {
+    font-size: var(--font-size-heading-sm);
+    color: var(--yellow-accent);
+    margin-bottom: var(--space-sm);
+}
+
+/* Services Overview */
+.services-list-card {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-list-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-sm);
+}
+
+.services-list-card li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--space-sm);
+    border-radius: var(--border-radius-sm);
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.services-list-card li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Why Choose Us */
+.why-choose-us {
+    background-color: var(--primary-dark);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+}
+
+.feature-item {
+    text-align: center;
+}
+
+/* Contact Info */
+.contact-info {
+    background-color: var(--secondary-dark);
+}
+
+.contact-details {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-details p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.link-style {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.link-style:hover {
+    text-decoration: underline;
+    color: var(--yellow-accent);
+}
+
+/* ====================================
+ * 📱 Media Queries
+ * ==================================== */
+
+@media (max-width: 768px) {
+    .about-hero {
+        min-height: 40vh;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    .vision-mission-wrapper {
+        flex-direction: column;
+    }
+    .services-list-card ul {
+        grid-template-columns: 1fr;
+    }
+}
