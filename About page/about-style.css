@@ -10,17 +10,17 @@
 
 :root {
   /* Colors - Consistent with the main site */
-  --primary-dark: #2b2d42;
-  --secondary-dark: #4a4e69;
-  --primary-color: #84a98c;
-  --secondary-color: #ffffff;
-  --text-light: #d4d5e2;
-  --card-bg: rgba(74, 78, 105, 0.5);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --highlight-gradient: linear-gradient(90deg, #84a98c 0%, #a4c3b2 100%);
-  --yellow-accent: #f6c45e;
-  --background-light: #f5f6f7;
-  --text-dark: #2b2d42;
+  --primary-dark: #1E2A38; 
+  --secondary-dark: #2F3E46; 
+  --primary-color: #2EC4B6; 
+  --secondary-color: #ffffff; 
+  --text-light: #E6E6E6; 
+  --card-bg: rgba(74, 78, 105, 0.5); 
+  --card-border: rgba(255, 255, 255, 0.1); 
+  --highlight-gradient: linear-gradient(90deg, #84a98c 0%, #a4c3b2 100%); 
+  --yellow-accent: #FFB703; 
+  --background-light: #FAFAFA; 
+  --text-dark: #2b2d42;  
 
   /* Typography - Consistent with the main site */
   --font-family-primary: 'Inter', sans-serif;
@@ -265,7 +265,7 @@ h1, h2, h3, h4 {
 }
 
 .services-list-card {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: center;
 }
@@ -275,20 +275,64 @@ h1, h2, h3, h4 {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-sm);
 }
 
 .services-list-card li {
     background: rgba(255, 255, 255, 0.05);
-    padding: var(--space-sm);
+    padding: 1.5rem;
     border-radius: var(--border-radius-sm);
     transition: background var(--transition-fast), transform var(--transition-fast);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 180px;
+    position: relative;
+    overflow: hidden;
 }
 
 .services-list-card li:hover {
-    background: rgba(255, 255, 255, 0.1);
     transform: translateY(-3px);
+    color: #fff;
+}
+
+.service-cleaning:hover {
+    background-image: url('/images/cleaning.jpg');
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.service-pies:hover {
+    background-image: url('/images/pies.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.service-lunchbox:hover {
+    background-image: url('/images/lunch-box.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.service-risk:hover {
+    background-image: url('/images/risk.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.service-embroidery:hover {
+    background-image: url('/images/gift.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.service-supply:hover {
+    background-image: url('/images/supply.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .why-choose-us {

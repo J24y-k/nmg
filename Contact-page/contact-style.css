@@ -4,18 +4,17 @@
 
 :root {
     /* Colors - Consistent with the main page */
-    --primary-dark: #2b2d42;
-    --secondary-dark: #4a4e69;
-    --primary-color: #84a98c;
-    --secondary-color: #ffffff;
-    --text-light: #d4d5e2;
-    --card-bg: rgba(74, 78, 105, 0.5);
-    --card-border: rgba(255, 255, 255, 0.1);
-    --highlight-gradient: linear-gradient(90deg, #84a98c 0%, #a4c3b2 100%);
-    --yellow-accent: #f6c45e;
-    --background-light: #f5f6f7;
-    --text-dark: #2b2d42;
-    --success-green: #38b2ac; /* A nice success green color */
+    --primary-dark: #1E2A38; 
+    --secondary-dark: #2F3E46; 
+    --primary-color: #2EC4B6; 
+    --secondary-color: #ffffff; 
+    --text-light: #E6E6E6; 
+    --card-bg: rgba(74, 78, 105, 0.5); 
+    --card-border: rgba(255, 255, 255, 0.1); 
+    --highlight-gradient: linear-gradient(90deg, #84a98c 0%, #a4c3b2 100%); 
+    --yellow-accent: #FFB703; 
+    --background-light: #FAFAFA; 
+    --text-dark: #2b2d42; /* A nice success green color */
     
     /* Typography - Consistent with the main page */
     --font-family-primary: 'Inter', sans-serif;

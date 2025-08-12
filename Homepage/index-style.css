@@ -4,16 +4,16 @@
 
 :root {
   /* Colors - Updated for a more chilled, relaxed tone */
-  --primary-dark: #2b2d42; /* charcoal blue-gray */
-  --secondary-dark: #4a4e69; /* A lighter shade for card backgrounds */
-  --primary-color: #84a98c; /* A calm, muted sage green they say */
-  --secondary-color: #ffffff; /* white for text on dark backgrounds */
-  --text-light: #d4d5e2; /* A soft gray for secondary text and details */
+  --primary-dark: #1E2A38; /* Deep navy-charcoal */
+  --secondary-dark: #2F3E46; /* slate green */
+  --primary-color: #2EC4B6; /* teal */
+  --secondary-color: #ffffff; /* keep white for text on dark backgrounds */
+  --text-light: #E6E6E6; /* Slightly brighter for better legibility */
   --card-bg: rgba(74, 78, 105, 0.5); /* Semi-transparent background for elements */
   --card-border: rgba(255, 255, 255, 0.1); /* A subtle border for cards */
   --highlight-gradient: linear-gradient(90deg, #84a98c 0%, #a4c3b2 100%); /* A new, calming gradient */
-  --yellow-accent: #f6c45e; /* A warm, inviting mustard yellow for accents */
-  --background-light: #f5f6f7; /* A very light gray for contrast sections */
+  --yellow-accent: #FFB703; /* warm gold */
+  --background-light: #FAFAFA; /* slightly cleaner look */
   --text-dark: #2b2d42; /* A dark text color for light backgrounds */
 
   /* Typography - Font sizes reduced for a more balanced look */
@@ -111,6 +111,60 @@ h1, h2, h3, h4 {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+.tour-button {
+  background: var(--highlight-gradient);
+  border: none;
+  padding: 16px 36px; /* bigger size */
+  font-size: 1.2rem;  /* slightly larger text */
+  font-weight: 800;
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background 0.3s ease;
+}
+
+/* Shine effect layer */
+.tour-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+/* Hover animation */
+.tour-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(90deg, var(--primary-color), var(--yellow-accent));
+}
+
+.tour-button:hover::after {
+  animation: shine 1s forwards;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+
 /* ====================================
  * 🚀 Hero Section
  * ==================================== */
@@ -136,7 +190,7 @@ h1, h2, h3, h4 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('../pexels-tima-miroshnichenko-9574569.jpg') no-repeat center center/cover;
+  background: url('/images/pexels-rethaferguson-4177708.jpg') no-repeat center center/cover;
   opacity: 0.7;
   z-index: -1;
   pointer-events: none;
@@ -323,12 +377,28 @@ h1, h2, h3, h4 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url('https://via.placeholder.com/600x800') no-repeat center;
+  background: url('/images/team.jpg') no-repeat center;
   background-size: cover;
   position: relative;
   color: var(--secondary-color);
   border-radius: var(--border-radius-md);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.right-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.right-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .right-section h1 {
