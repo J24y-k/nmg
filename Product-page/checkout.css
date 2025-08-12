@@ -1,0 +1,34 @@
+/* Reuse from products.css */
+@import url('../product.css');
+
+/* Checkout specifics */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-sm);
+    padding: var(--space-sm);
+    background: var(--card-bg);
+    border-radius: var(--border-radius-sm);
+}
+
+.cart-total {
+    text-align: right;
+    margin: var(--space-md) 0;
+}
+
+#eft-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.eft-note {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: var(--space-sm);
+}
+
+#status-message.success {
+    color: var(--primary-color);
+    font-weight: bold;
+}

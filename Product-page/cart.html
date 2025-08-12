@@ -1,0 +1,86 @@
+<!-- cart.html (updated with cursor and hamburger) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - NMG Zembeta</title>
+    <link rel="stylesheet" href="./checkout.css"> <!-- Reuse checkout styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="custom-cursor"></div>
+
+    <nav class="nav">
+        <!-- Same nav -->
+        <div class="logo">
+            <img src="../LOGO NMG.png" alt="Logo">
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="../Homepage/index.html">Home</a>
+            <a href="../About-page/about.html">About</a>
+            <a href="#services">Services</a>
+            <a href="../Contact-page/contact.html">Contact</a>
+        </div>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="search">🔍</div>
+        <div class="cart-icon" id="cart-icon">🛒 <span id="cart-count">0</span></div>
+    </nav>
+
+    <main>
+        <section class="cart section">
+            <div class="container">
+                <h2 class="section-title">Your Cart</h2>
+                <div id="cart-items"></div>
+                <div class="cart-total">
+                    <h3>Total: R<span id="total-price">0</span></h3>
+                </div>
+                <button id="proceed-to-checkout" class="submit-button">Proceed to Checkout</button>
+                <a href="products.html" class="continue-shopping">Continue Shopping</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Reused from about.html -->
+        <div class="footer-content">
+            <div class="footer-form">
+                <h3 class="form-title">Get in Touch</h3>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+            <div class="footer-info">
+                <h3 class="info-title">Connect With Us</h3>
+                <div class="social">
+                    <a href="#">IG</a>
+                    <a href="#">WHATSAPP</a>
+                    <a href="#">EMAIL</a>
+                </div>
+                <div class="location">
+                    <h4>Location</h4>
+                    <p>123 Business Avenue, JHB, SA</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 NMG Zembeta. All rights reserved. Website made by Jay_k & Kuti.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="data.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>
