@@ -62,6 +62,10 @@ h1, h2, h3, h4 {
     line-height: 1.2;
 }
 
+a {
+    color: #fff;
+}
+
 .gradient-text {
     background: var(--highlight-gradient);
     -webkit-background-clip: text;
@@ -281,17 +285,32 @@ h1, h2, h3, h4 {
 
 .services-list-card li {
     background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
+    padding: 0.75rem;           /* Reduce padding */
     border-radius: var(--border-radius-sm);
     transition: background var(--transition-fast), transform var(--transition-fast);
-    font-size: 1.1rem;
+    font-size: 1rem;            /* Restore previous font size */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 180px;
+    min-height: 100px;          /* Reduce min-height */
     position: relative;
     overflow: hidden;
+}
+
+.services-list-card li a {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 1rem;           /* Restore previous font size */
+    font-weight: 700;
+    padding: 0.5rem;           /* Reduce padding for smaller cards */
+    border-radius: var(--border-radius-sm);
+    z-index: 2;
 }
 
 .services-list-card li:hover {
@@ -333,6 +352,16 @@ h1, h2, h3, h4 {
     background-image: url('/images/supply.jpg');
     background-size: cover;
     background-position: center;
+}
+
+.tab-button,
+.category-tabs button {
+    color: #fff !important;
+}
+
+.services-list-card li a {
+    color: #fff !important;
+    text-decoration: none;
 }
 
 .why-choose-us {
