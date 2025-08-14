@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - NMG Zembeta</title>
+  <link rel="stylesheet" href="./product.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="custom-cursor"></div>
+
+  <nav class="nav">
+    <div class="logo">
+      <img src="../LOGO NMG.png" alt="Logo">
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="/Homepage/index.html">Home</a>
+      <a href="/About page/about.html">About</a>
+      <a href="/SERVICE PAGE/service.html">Services</a>
+      <a href="/Contact-page/contact.html">Contact</a>
+    </div>
+    <div class="hamburger-menu" id="hamburger-menu">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+    <div class="search">🔍</div>
+    <a href="cart.html" class="cart-icon" id="cart-icon">🛒 <span id="cart-count">0</span></a>
+  </nav>
+
+  <main>
+    <header class="products-hero section">
+      <div class="container hero-content">
+        <h1 class="hero-title">Our Products</h1>
+        <p class="hero-subtitle">Browse our range of high-quality products across categories.</p>
+      </div>
+    </header>
+
+    <section class="product-categories section">
+      <div class="container">
+        <div class="category-tabs">
+          <button class="tab-button active" data-category="laundry">Laundry</button>
+          <button class="tab-button" data-category="pies-noodles">Pies & Noodles</button>
+          <button class="tab-button" data-category="lunchbox">Lunchbox</button>
+          <button class="tab-button" data-category="gifts">Gifts</button>
+          <button class="tab-button" data-category="supply">Supply</button>
+        </div>
+
+        <h2 class="section-title">Featured Products</h2>
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>Copyright © 2025 NMG Zembeta. All rights reserved. Website made by Jay_k & Kuti.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="data.js"></script>
+  <script src="products.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("loaded");
+});
+</script>
+</body>
+</html>

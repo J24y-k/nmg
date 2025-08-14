@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - NMG Zembeta</title>
+  <link rel="stylesheet" href="./product.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="custom-cursor"></div>
+
+  <nav class="nav">
+    <div class="logo"><img src="../LOGO NMG.png" alt="Logo"></div>
+    <div class="nav-links" id="nav-links">
+      <a href="/Homepage/index.html">Home</a>
+      <a href="/About page/about.html">About</a>
+      <a href="/SERVICE PAGE/service.html">Services</a>
+      <a href="/Contact-page/contact.html">Contact</a>
+    </div>
+    <div class="hamburger-menu" id="hamburger-menu">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+    <div class="search">🔍</div>
+    <a href="cart.html" class="cart-icon" id="cart-icon">🛒 <span id="cart-count">0</span></a>
+  </nav>
+
+  <main>
+    <section class="product-details section">
+      <div class="container">
+        <div id="product-info"></div>
+      </div>
+    </section>
+
+    <section class="related-products section">
+      <div class="container">
+        <h3>You may also like</h3>
+        <div id="related-products" class="product-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>Copyright © 2025 NMG Zembeta. All rights reserved. Website made by Jay_k & Kuti.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="data.js"></script>
+  <script src="product-details.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("loaded");
+});
+</script>
+</body>
+</html>

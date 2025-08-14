@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - NMG Zembeta</title>
+  <link rel="stylesheet" href="./checkout.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="custom-cursor"></div>
+
+  <nav class="nav">
+    <div class="logo"><img src="../LOGO NMG.png" alt="Logo"></div>
+    <div class="nav-links" id="nav-links">
+      <a href="/Homepage/index.html">Home</a>
+      <a href="/About page/about.html">About</a>
+      <a href="/SERVICE PAGE/service.html">Services</a>
+      <a href="/Contact-page/contact.html">Contact</a>
+    </div>
+    <div class="hamburger-menu" id="hamburger-menu">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    </div>
+    <div class="search">🔍</div>
+    <a href="cart.html" class="cart-icon" id="cart-icon">🛒 <span id="cart-count">0</span></a>
+  </nav>
+
+  <main>
+    <section class="checkout section">
+      <div class="container">
+        <h2 class="section-title">Your Cart</h2>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+          <h3>Total: R<span id="total-price">0</span></h3>
+        </div>
+
+        <h3>EFT Payment Details</h3>
+        <form id="eft-form">
+          <input id="name" type="text" placeholder="Full Name" required>
+          <input id="email" type="email" placeholder="Email" required>
+          <input id="account" type="text" placeholder="Bank Account Number" required>
+          <input id="branch" type="text" placeholder="Branch Code" required>
+          <textarea id="notes" placeholder="Additional Notes" rows="3"></textarea>
+          <button type="submit" class="submit-button">Complete EFT Payment</button>
+        </form>
+        <p id="status-message" class="eft-note"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>Copyright © 2025 NMG Zembeta. All rights reserved. Website made by Jay_k & Kuti.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="./data.js"></script>
+  <script src="./checkout.js"></script>
+  <script src="./cart.js"></script> <!-- reuse rendering for cart summary in checkout -->
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("loaded");
+});
+</script>
+</body>
+</html>
