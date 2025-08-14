@@ -1,5 +1,5 @@
-// data.js - Centralized product data with IDs and numeric prices
-const products = {
+// data.js — shared product data (numeric prices)
+window.categories = {
   laundry: [
     { id: 0, name: "Laundry Soap", description: "Gentle cleaning for all fabrics.", price: 50, image: "images/laundry-soap.jpg" },
     { id: 1, name: "Fabric Softener", description: "Keeps clothes soft and fresh.", price: 35, image: "images/fabric-softener.jpg" },

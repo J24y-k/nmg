@@ -52,33 +52,33 @@ background: var(--primary-color);
 color: var(--text-dark);
 }
 
-/* Product Grid (like screenshot: rows of 4-5 items, responsive) */
 .product-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: var(--space-md);
-cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
 }
 
 .product-card {
-background: var(--card-bg);
-border: 1px solid var(--card-border);
-border-radius: var(--border-radius-md);
-padding: var(--space-sm);
-text-align: center;
-transition: transform var(--transition-fast);
-cursor: pointer;
+  background: var(--card-bg, #111827);
+  border: 1px solid var(--card-border, #1f2937);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .product-card:hover {
 transform: translateY(-5px);
 }
 
+.product-card .add-to-cart { cursor: pointer; }
+
 .product-image {
-width: 100%;
-height: 150px;
-object-fit: contain;
-margin-bottom: var(--space-sm);
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 8px;
 }
 
 .product-name {
@@ -113,6 +113,15 @@ cursor: pointer;
 transform: scale(1.05);
 }
 
+.details-wrap {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.details-actions { display: flex; gap: 12px; margin-top: 12px; }
+
 /* Cart Icon in Nav */
 .cart-icon {
 margin-left: var(--space-sm);
@@ -134,50 +143,9 @@ top: -5px;
 right: -10px;
 }
 
-/* Media Queries (responsive grid) */
-@media (max-width: 768px) {
-.product-grid {
+@media (max-width: 800px) {
+  .details-wrap { grid-template-columns: 1fr; }
+  .product-grid {
 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
-}
-
-/* New: Product Details Styles */
-.product-details {
-padding-top: 200px; /* Increased to push content down below nav; adjust as needed */
-min-height: calc(100vh - 200px); /* Account for nav/footer; adjust based on actual heights */
-display: flex;
-align-items: center; /* Vertically center the content */
-justify-content: center; /* Horizontally center */
-text-align: center;
-}
-
-.product-details .container {
-position: relative; /* For absolute positioning of back button */
-max-width: 800px; /* Limit width for focus */
-margin: 0 auto;
-}
-
-.back-button {
-position: absolute;
-top: -50px; /* Position above the container, adjust to fit below nav */
-left: 0;
-background: none;
-border: none;
-font-size: 1.5rem;
-cursor: pointer;
-color: var(--yellow-accent); /* Match theme */
-transition: color var(--transition-fast);
-}
-
-.back-button:hover {
-color: var(--primary-color);
-}
-
-#product-info {
-margin-top: 50px; /* Additional spacing if needed */
-}
-
-#product-info img {
-max-width: 100%; /* Ensure image scales */
-height: auto;
 }

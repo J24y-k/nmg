@@ -1,43 +1,43 @@
-// products.js (updated with custom cursor and GSAP check from contact.js)
+// products.js — renders products, handles add-to-cart & navigation
 function initCustomCursor() {
   const cursor = document.getElementById('custom-cursor');
-  if (!cursor) {
-    console.error('Custom cursor element #custom-cursor not found.');
-    return;
-  }
+  if (!cursor) return;
   document.addEventListener('mousemove', (e) => {
-    gsap.to(cursor, {
-      x: e.clientX,
-      y: e.clientY,
-      duration: 0.1,
-      ease: "power2.out"
-    });
+    gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: "power2.out" });
   });
 }
 
 function setupHamburgerMenu() {
   const hamburger = document.getElementById('hamburger-menu');
   const navLinks = document.getElementById('nav-links');
-  if (!hamburger || !navLinks) {
-    console.error('Hamburger menu or navigation links not found.');
-    return;
-  }
+  if (!hamburger || !navLinks) return;
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('active');
   });
 }
 
-function renderProducts(category) {
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const badge = document.getElementById('cart-count');
+  if (badge) badge.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+}
+
+function renderProducts(categoryKey) {
   const grid = document.getElementById('product-grid');
+  if (!grid) return;
   grid.innerHTML = '';
-  products[category].forEach((product, index) => {
+
+  const list = (window.categories && window.categories[categoryKey]) ? window.categories[categoryKey] : [];
+  list.forEach(product => {
     const card = document.createElement('div');
     card.className = 'product-card';
-    card.dataset.category = category;
+    card.dataset.category = categoryKey;
     card.dataset.id = product.id;
+
     card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}" class="product-image" onerror="this.src='https://via.placeholder.com/150x150?text=No+Image'">
+      <img src="${product.image}" alt="${product.name}" class="product-image"
+           onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
       <div class="product-name">${product.name}</div>
       <div class="product-description">${product.description}</div>
       <div class="product-price">R${product.price}</div>
@@ -47,70 +47,47 @@ function renderProducts(category) {
   });
 }
 
-// Initial render for default category
-renderProducts('laundry');
-
-// Tab switching logic
-document.querySelectorAll('.tab-button').forEach(btn => {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-    this.classList.add('active');
-    renderProducts(this.getAttribute('data-category'));
-  });
-});
-
-// Cart functionality
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-function updateCartCount() {
-  document.getElementById('cart-count').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-}
-
-updateCartCount();
-
-// Add to cart from product grid
-document.getElementById('product-grid').addEventListener('click', (e) => {
+// Add to Cart
+document.addEventListener('click', (e) => {
   if (e.target.classList.contains('add-to-cart')) {
-    e.stopPropagation(); // Prevent triggering card navigation
     const card = e.target.closest('.product-card');
-    const category = card.dataset.category;
-    const id = parseInt(card.dataset.id);
-    const product = products[category].find(p => p.id === id);
-    const existing = cart.find(item => item.id === id && item.category === category);
-    if (existing) {
-      existing.quantity += 1;
-    } else {
-      cart.push({ ...product, quantity: 1, category });
-    }
+    const category = card?.dataset.category;
+    const id = parseInt(card?.dataset.id);
+    const product = window.categories?.[category]?.find(p => p.id === id);
+    if (!product) return;
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existing = cart.find(item => item.id === product.id && item.category === category);
+    if (existing) existing.quantity += 1;
+    else cart.push({ ...product, category, quantity: 1 });
+
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
-    alert(`${product.name} added to cart!`); // Simple feedback; can enhance later
   }
 });
 
-// Make cards clickable to details (excluding button clicks due to stopPropagation)
+// Navigate to product details when clicking card (except the Add to Cart button)
 document.addEventListener('click', (e) => {
   const card = e.target.closest('.product-card');
-  if (card) {
+  if (card && !e.target.classList.contains('add-to-cart')) {
     const category = card.dataset.category;
     const id = card.dataset.id;
-    window.location.href = `product-details.html?category=${category}&id=${id}`;
+    window.location.href = `product-details.html?category=${encodeURIComponent(category)}&id=${encodeURIComponent(id)}`;
   }
 });
 
-// Cart icon to cart page (already handled by HTML href, but override if needed)
-document.getElementById('cart-icon').addEventListener('click', (e) => {
-  e.preventDefault();
-  window.location.href = 'cart.html';
-});
-
-// Initialize on DOM ready
+// Tab switching
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.tab-button').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      renderProducts(this.dataset.category);
+    });
+  });
+
   setupHamburgerMenu();
-  if (typeof gsap !== 'undefined') {
-    initCustomCursor();
-    gsap.from('.product-card', { duration: 1, y: 50, opacity: 0, stagger: 0.2, ease: 'power3.out' });
-  } else {
-    console.error('GSAP library is not loaded. Please include GSAP in your project.');
-  }
+  if (typeof gsap !== 'undefined') initCustomCursor();
+  renderProducts('laundry');
+  updateCartCount();
 });

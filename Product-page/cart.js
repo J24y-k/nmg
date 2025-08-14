@@ -1,3 +1,4 @@
+// cart.js — Amazon-style cart with thumbnails & quantity controls
 function initCustomCursor() {
   const cursor = document.getElementById('custom-cursor');
   if (!cursor) return;
@@ -18,7 +19,8 @@ function setupHamburgerMenu() {
 
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  document.getElementById('cart-count').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const badge = document.getElementById('cart-count');
+  if (badge) badge.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
 }
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -26,23 +28,42 @@ const cartItems = document.getElementById('cart-items');
 const totalPrice = document.getElementById('total-price');
 
 function renderCart() {
+  if (!cartItems || !totalPrice) return;
   cartItems.innerHTML = '';
   let total = 0;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = `<p>Your cart is empty.</p>`;
+  }
+
   cart.forEach((item, index) => {
-    const div = document.createElement('div');
-    div.classList.add('cart-item');
-    div.innerHTML = `
-      <span>${item.name} - R${item.price} x ${item.quantity}</span>
-      <div class="quantity-controls">
-        <button class="qty-btn" data-index="${index}" data-action="decrease">-</button>
-        <span>${item.quantity}</span>
-        <button class="qty-btn" data-index="${index}" data-action="increase">+</button>
+    const row = document.createElement('div');
+    row.className = 'cart-item';
+    row.innerHTML = `
+      <div class="cart-left">
+        <img src="${item.image}" alt="${item.name}" class="cart-thumb"
+             onerror="this.src='https://via.placeholder.com/80x80?text=No+Image'">
       </div>
-      <button class="remove-item" data-index="${index}">Remove</button>
+      <div class="cart-middle">
+        <a class="cart-name" href="product-details.html?category=${encodeURIComponent(item.category)}&id=${encodeURIComponent(item.id)}">
+          ${item.name}
+        </a>
+        <div class="cart-price">R${item.price}</div>
+        <div class="quantity-controls">
+          <button class="qty-btn" data-index="${index}" data-action="decrease">-</button>
+          <span class="qty-count">${item.quantity}</span>
+          <button class="qty-btn" data-index="${index}" data-action="increase">+</button>
+        </div>
+      </div>
+      <div class="cart-right">
+        <div class="cart-subtotal">R${item.price * item.quantity}</div>
+        <button class="remove-item" data-index="${index}">Remove</button>
+      </div>
     `;
-    cartItems.appendChild(div);
+    cartItems.appendChild(row);
     total += item.price * item.quantity;
   });
+
   totalPrice.textContent = total;
   updateCartCount();
 }
@@ -52,10 +73,11 @@ document.addEventListener('click', (e) => {
     const index = parseInt(e.target.dataset.index);
     const action = e.target.dataset.action;
     if (action === 'increase') cart[index].quantity += 1;
-    else if (action === 'decrease' && cart[index].quantity > 1) cart[index].quantity -= 1;
+    if (action === 'decrease') cart[index].quantity = Math.max(1, cart[index].quantity - 1);
     localStorage.setItem('cart', JSON.stringify(cart));
     renderCart();
-  } else if (e.target.classList.contains('remove-item')) {
+  }
+  if (e.target.classList.contains('remove-item')) {
     const index = parseInt(e.target.dataset.index);
     cart.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -63,14 +85,9 @@ document.addEventListener('click', (e) => {
   }
 });
 
-document.getElementById('proceed-to-checkout').addEventListener('click', () => {
+document.getElementById('proceed-to-checkout')?.addEventListener('click', () => {
   if (cart.length > 0) window.location.href = 'checkout.html';
   else alert('Your cart is empty!');
-});
-
-// Cart icon to cart page (redundant here but consistent)
-document.getElementById('cart-icon').addEventListener('click', () => {
-  window.location.href = 'cart.html';
 });
 
 document.addEventListener('DOMContentLoaded', () => {
