@@ -2,17 +2,17 @@
 function initCustomCursor() {
     const cursor = document.getElementById('custom-cursor');
 
-    // Make sure the cursor element exists before trying to use it
     if (!cursor) {
         console.error('Custom cursor element #custom-cursor not found.');
         return;
     }
 
     document.addEventListener('mousemove', (e) => {
+        // Corrected duration to match the index page for a smoother, trailing effect
         gsap.to(cursor, {
             x: e.clientX,
             y: e.clientY,
-            duration: 0.1,
+            duration: 0.1, // Changed from 0.05 to 0.1 to match your index file
             ease: "power2.out"
         });
     });
@@ -21,45 +21,24 @@ function initCustomCursor() {
 // Function to handle the form submission and provide feedback
 function handleContactFormSubmission() {
     const form = document.getElementById('contactForm');
-    const statusMessage = document.getElementById('status-message');
 
-    // Make sure the form and status message elements exist
-    if (!form || !statusMessage) {
-        console.error('Contact form or status message element not found.');
+    if (!form) {
+        console.error('Contact form element not found.');
         return;
     }
-    
-    // Listen for the form submission
+
     form.addEventListener('submit', function(event) {
-        // Prevent the default form submission
         event.preventDefault();
 
-        // Check if all form fields are filled out
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
         const message = document.getElementById('message').value;
 
-        if (name && email && subject && message) {
-            // Simulate a successful submission
-            statusMessage.textContent = 'Thank you for your message! We will get back to you soon.';
-            statusMessage.classList.add('success');
-            
-            // Clear the form after a short delay
-            setTimeout(() => {
-                form.reset();
-                statusMessage.classList.remove('success');
-                statusMessage.textContent = '';
-            }, 3000);
-            
-            // In a real-world scenario, you would send the data to a server here.
-            // Example: fetch('/submit-contact-form', { method: 'POST', body: new FormData(form) });
-            
+        if (name && email && message) {
+            alert('Thank you for your message! We will get back to you soon.');
+            form.reset();
         } else {
-            // This part is redundant due to the 'required' attribute on inputs,
-            // but is good for client-side validation logic.
-            statusMessage.textContent = 'Please fill out all fields.';
-            statusMessage.classList.remove('success'); // Ensure success styling is removed
+            alert('Please fill out all fields.');
         }
     });
 }
@@ -81,15 +60,14 @@ function setupHamburgerMenu() {
 }
 
 // Initialize all functionality when the document is ready
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
     initCustomCursor();
     handleContactFormSubmission();
     setupHamburgerMenu();
 });
-// Ensure GSAP is loaded before using it
+
+// A small check for the GSAP library as a fallback
 if (typeof gsap === 'undefined') {
     console.error('GSAP library is not loaded. Please include GSAP in your project.');
-} else {
-    // GSAP is loaded, proceed with the custom cursor initialization
-    initCustomCursor();
 }

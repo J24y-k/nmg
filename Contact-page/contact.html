@@ -5,88 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact NMG Zembeta</title>
     
-    <!-- Link to your new contact page CSS -->
     <link rel="stylesheet" href="contact-style.css">
     
-    <!-- Fonts from the main page for consistency -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
-    <div id="custom-cursor"></div> <!-- Custom cursor from the main page -->
+    <div id="custom-cursor"></div>
 
-    <!-- Navigation Bar - Reused for consistency -->
-    <nav class="nav">
-        <div class="logo">
-           <a href="index.html">
-                <!-- Circular logo styling will be handled in the CSS -->
-                <img src="../LOGO NMG.png" alt="NMG Zembeta Logo">
-           </a>
-        </div>
-        <div class="nav-links" id="nav-links">
-            <a href="../Homepage/index.html">Home</a>
-           <a href="../About page/about.html">About</a>
-           <a href="index.html#services">Services</a>
-        </div>
-        <div class="hamburger-menu" id="hamburger-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <div class="search">🔍</div>
-    </nav>
+   <nav class="nav">
+            <div class="logo">
+            <img src="../LOGO NMG.png" alt="Logo">
+            </div>
+            <div class="nav-links" id="nav-links">
+            <a href="/Homepage/index.html">Home</a>
+            <a href="/About page/about.html">About</a>
+            <a href="/Product-page/products.html">Services</a>
+            <a href="/Contact-page/contact.html">Contact</a>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
 
-    <!-- Main Contact Section -->
-    <section id="contact-section" class="contact-section">
-        <div class="contact-container">
+    <section class="contact-container">
+        <div class="contact-image">
+            <img src="../images/Cleaning.png" alt="A sleek, professional setting representing NMG Zembeta.">
+        </div>
+
+        <div class="contact-form-wrapper">
             <div class="contact-info">
-                <h1>Contact Us</h1>
-                <p>We'd love to hear from you! Please fill out the form or use the contact details below to get in touch with our team.</p>
-                <div class="info-item">
-                    <h4>Address</h4>
-                    <p>123 Business Avenue, JHB, South Africa</p>
-                </div>
-                <div class="info-item">
-                    <h4>Phone</h4>
-                    <p>+27 12 345 6789</p>
-                </div>
-                <div class="info-item">
-                    <h4>Email</h4>
-                    <p>info@nmgzembeta.co.za</p>
-                </div>
-                <div class="social-links">
-                    <a href="#">IG</a>
-                    <a href="#">WHATSAPP</a>
-                    <a href="#">EMAIL</a>
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you. Fill out the form below or connect with us directly.</p>
+                <p><strong>Email:</strong><br> info@nmgzembeta.co.za</p>
+                <p><strong>Location:</strong><br> 123 Business Avenue, JHB, South Africa</p>
+
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm4.2 2.8c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 10c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm4.8-9.6c.6 0 1.2.5 1.2 1.2s-.5 1.2-1.2 1.2-1.2-.5-1.2-1.2.5-1.2 1.2-1.2z"/></svg></a>
+                    <a href="#" aria-label="WhatsApp"><svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.76.45 3.48 1.3 4.98L2 22l5.25-1.38c1.45.83 3.08 1.27 4.79 1.27 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm3.63 14.53c-.22.62-.87.99-1.45.75-.73-.31-2.22-.97-3.12-1.87-.89-.89-1.56-2.37-1.87-3.12-.24-.58.13-1.24.75-1.45.2-.07.37-.09.54-.03.17.06.31.23.44.46.62 1.12.93 2.06 1.03 2.28.09.22.03.47-.16.67-.2.22-.44.37-.66.56-.22.2-.29.36-.25.59.22.89.87 1.73 1.56 2.41.69.69 1.53 1.34 2.41 1.56.22.03.39-.03.59-.25.19-.22.34-.46.56-.66.2-.19.45-.25.67-.16.22.1 1.16.41 2.28 1.03.23.13.4.27.46.44.06.17.04.34-.03.54z"/></svg></a>
+                    <a href="#" aria-label="Email"><svg class="social-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5-8-5V6l8 5 8-5z"/></svg></a>
                 </div>
             </div>
-            
-            <div class="contact-form-wrapper">
-                <!-- The form element that our JavaScript will interact with -->
-                <form id="contactForm" class="contact-form" action="#" method="post">
-                    <h2>Send Us a Message</h2>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
-                    
-                    <button type="submit" class="submit-button">Send Message</button>
-                    <!-- A div to display success or error messages -->
-                    <div id="status-message" class="status-message"></div>
-                </form>
-            </div>
+
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
+                <textarea id="message" name="message" placeholder="Message" required></textarea>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
         </div>
     </section>
 
-    <!-- Footer - Reused for consistency -->
-    <footer class="footer">
-        <div class="footer-bottom">
-            <p>Copyright © 2025 NMG Zembeta. All rights reserved. Website made by Jay_k & Kuti.</p>
-        </div>
-    </footer>
-    
-    <!-- Link to your JavaScript file for interactivity -->
     <script src="contact.js"></script>
 </body>
 </html>

@@ -1,35 +1,32 @@
-/* ===============================================================================================================================
- * 🎨 Design System
- * =============================================================================================================================== */
 
 :root {
-    /* Colors - Consistent with the main page */
-    --primary-dark: #1E2A38; 
-    --secondary-dark: #2F3E46; 
-    --primary-color: #2EC4B6; 
-    --secondary-color: #ffffff; 
-    --text-light: #E6E6E6; 
-    --card-bg: rgba(74, 78, 105, 0.5); 
-    --card-border: rgba(255, 255, 255, 0.1); 
-    --highlight-gradient: linear-gradient(90deg, #84a98c 0%, #a4c3b2 100%); 
-    --yellow-accent: #FFB703; 
-    --background-light: #FAFAFA; 
-    --text-dark: #2b2d42; /* A nice success green color */
-    
-    /* Typography - Consistent with the main page */
+    /* Colors */
+    --primary-dark: #1E2A38;
+    --secondary-dark: #2F3E46;
+    --primary-color: #2EC4B6;
+    --secondary-color: #ffffff;
+    --text-light: #E6E6E6;
+    --card-bg: rgba(74, 78, 105, 0.5);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --highlight-gradient: linear-gradient(90deg, #84a98c 0%, #a4c3b2 100%);
+    --yellow-accent: #FFB703;
+    --background-light: #FAFAFA;
+    --text-dark: #2b2d42;
+
+    /* Typography */
     --font-family-primary: 'Inter', sans-serif;
-    --font-size-base: 0.95rem;
-    --font-size-heading-lg: 3em;
-    --font-size-heading-md: 1.75rem;
-    --font-size-heading-sm: 1.25rem;
+    --font-size-base: 0.9rem;
+    --font-size-heading-lg: 2.5em;
+    --font-size-heading-md: 1.5rem;
+    --font-size-heading-sm: 1.1rem;
 
-    /* Spacing - Consistent with the main page */
-    --space-sm: 1rem;
-    --space-md: 2rem;
-    --space-lg: 4rem;
-    --container-width: 1200px;
+    /* Spacing */
+    --space-sm: 0.8rem;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+    --container-width: 1100px;
 
-    /* Other - Consistent with the main page */
+    /* Other */
     --border-radius-sm: 8px;
     --border-radius-md: 16px;
     --transition-fast: 0.3s ease;
@@ -38,21 +35,35 @@
 /* ===============================================================================================================================
  * ➡️ Base Styles
  * =============================================================================================================================== */
-
-body {
+* {
     margin: 0;
     padding: 0;
-    background-color: var(--primary-dark);
+    box-sizing: border-box;
     font-family: var(--font-family-primary);
+}
+
+body {
+    background: var(--primary-dark);
     color: var(--text-light);
     line-height: 1.6;
     overflow-x: hidden;
-    opacity: 1; /* Page starts visible */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 120px;
+}
+
+body.loaded {
+    opacity: 1;
 }
 
 h1, h2, h3, h4 {
     font-weight: 700;
     line-height: 1.2;
+    color: var(--primary-color);
 }
 
 a {
@@ -66,9 +77,8 @@ a:hover {
 }
 
 /* ===============================================================================================================================
- * 🚀 Navigation Bar - Reused from the main page
+ * 🚀 Navigation Bar
  * =============================================================================================================================== */
-
 .nav {
     position: fixed;
     top: 0;
@@ -89,7 +99,6 @@ a:hover {
     margin-right: auto;
 }
 
-/* Styling for the circular logo image */
 .logo img {
     width: 50px;
     height: 50px;
@@ -115,19 +124,6 @@ a:hover {
     color: var(--primary-color);
 }
 
-.search {
-    margin-left: auto;
-    color: var(--yellow-accent);
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: transform var(--transition-fast);
-}
-
-.search:hover {
-    transform: scale(1.1);
-}
-
-/* Hamburger menu styling */
 .hamburger-menu {
     display: none;
     flex-direction: column;
@@ -155,151 +151,133 @@ a:hover {
 }
 
 /* ===============================================================================================================================
- * 📞 Contact Section
+ * 📞 Contact Section - New Design
  * =============================================================================================================================== */
-
-.contact-section {
-    padding-top: 100px; /* Add space for the fixed navigation bar */
-    padding-bottom: var(--space-lg);
-    background-color: var(--primary-dark);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .contact-container {
-    max-width: var(--container-width);
-    width: 90%;
     display: flex;
-    gap: var(--space-lg);
-    margin: var(--space-md) auto;
-    background: var(--card-bg);
+    max-width: 900px;
+    background: var(--secondary-dark);
     border: 1px solid var(--card-border);
     border-radius: var(--border-radius-md);
-    backdrop-filter: blur(10px);
+    overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    padding: var(--space-lg);
 }
 
-.contact-info,
+.contact-image {
+    flex: 1;
+    min-height: 450px;
+}
+
+.contact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .contact-form-wrapper {
     flex: 1;
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    justify-content: space-between;
 }
 
-.contact-info h1 {
+.contact-form-wrapper h2 {
     font-size: var(--font-size-heading-md);
-    color: var(--primary-color);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
+    color: var(--text-light);
+}
+
+.contact-section {
+    padding-top: 60px; /* gives more breathing room */
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input, 
+form textarea {
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid var(--text-light);
+    font-size: var(--font-size-base);
+    background: transparent;
+    outline: none;
+    color: var(--text-light);
+    transition: border-color var(--transition-fast);
+}
+
+form input:focus, 
+form textarea:focus {
+    border-color: var(--primary-color);
+}
+
+form input::placeholder, 
+form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+form textarea {
+    resize: none;
+    height: 80px;
+}
+
+.submit-button {
+    background: var(--primary-color);
+    color: var(--text-dark);
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-button:hover {
+    background: var(--yellow-accent);
+    transform: translateY(-2px);
+}
+
+.contact-info {
+    margin-top: 20px;
 }
 
 .contact-info p {
+    margin-bottom: 15px;
     font-size: var(--font-size-base);
     color: var(--text-light);
 }
 
-.info-item h4 {
-    font-size: var(--font-size-heading-sm);
-    color: var(--yellow-accent);
-    margin-bottom: 0.5rem;
-}
-
-.info-item p {
-    margin: 0;
-}
-
-.social-links a {
-    font-size: 1.5rem;
-    margin-right: var(--space-sm);
-}
-
-.contact-form h2 {
-    font-size: var(--font-size-heading-sm);
+.contact-info p strong {
     color: var(--primary-color);
-    margin-bottom: var(--space-md);
 }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--card-border);
-    border-radius: var(--border-radius-sm);
-    background: var(--secondary-dark);
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
     color: var(--text-light);
-    font-size: 1rem;
-    transition: border-color var(--transition-fast);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.submit-button {
-    background-color: var(--yellow-accent);
-    border: none;
-    padding: 12px 28px;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    cursor: pointer;
-    border-radius: 50px;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    width: auto;
-    align-self: flex-start;
-}
-
-.submit-button:hover {
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.status-message {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-top: var(--space-sm);
-    text-align: center;
-    padding: 10px;
-    border-radius: var(--border-radius-sm);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.status-message.success {
-    background-color: rgba(56, 178, 172, 0.2);
-    color: var(--success-green);
-    opacity: 1;
-}
-
-/* ===============================================================================================================================
- * 📞 Footer - Reused from the main page
- * =============================================================================================================================== */
-
-.footer {
-    background-color: var(--primary-dark);
-    padding: var(--space-lg) 0 var(--space-md) 0;
-}
-
-.footer-bottom {
-    text-align: center;
-    font-size: 0.875rem;
-    color: var(--secondary-color);
+.social-icons a:hover {
+    color: var(--primary-color);
+    transform: scale(1.15);
 }
 
 /* ===============================================================================================================================
  * 🖱️ Custom Cursor
  * =============================================================================================================================== */
-
 #custom-cursor {
     position: fixed;
     width: 30px;
@@ -312,26 +290,29 @@ a:hover {
     transform: translate(-50%, -50%);
 }
 
-.submit-button:hover ~ #custom-cursor,
-.social-links a:hover ~ #custom-cursor,
+.contact-form-wrapper button:hover ~ #custom-cursor,
+.social-icons a:hover ~ #custom-cursor,
 .nav-links a:hover ~ #custom-cursor,
-.search:hover ~ #custom-cursor,
-.logo a:hover ~ #custom-cursor {
+.hamburger-menu:hover ~ #custom-cursor {
     transform: scale(1.8) translate(-28%, -28%);
 }
 
 /* ===============================================================================================================================
- * 📱 Media Queries
+ * 📱 Responsive
  * =============================================================================================================================== */
-
 @media (max-width: 992px) {
     .contact-container {
         flex-direction: column;
-        padding: var(--space-md);
-        gap: var(--space-md);
+        max-width: 90%;
+        padding: 0;
+    }
+    .contact-image {
+        height: 300px;
+    }
+    .contact-form-wrapper {
+        padding: 20px;
     }
 }
-
 @media (max-width: 768px) {
     .nav {
         justify-content: space-between;
@@ -354,19 +335,49 @@ a:hover {
         border-bottom: 1px solid var(--card-border);
         z-index: 99;
     }
-    .nav-links a {
-        margin-top: var(--space-sm);
-    }
     .nav-links.active {
         transform: translateY(0);
     }
     .hamburger-menu {
         display: flex;
     }
-    .search {
-        display: none;
+}
+
+@media (max-width: 480px) {
+    .contact-form-wrapper {
+        padding: 15px;
     }
-    .contact-section {
-        padding-top: 80px;
+
+    form input, form textarea {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    .submit-button {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+
+    .contact-info h2 {
+        font-size: 1.2rem;
     }
 }
+
+@media (hover: none) and (pointer: coarse) {
+    #custom-cursor {
+        display: none;
+    }
+}
+
+.contact-image {
+    flex: 1;
+    min-height: 250px;
+    max-height: 400px;
+}
+
+@media (max-width: 768px) {
+    .contact-image {
+        max-height: 300px;
+    }
+}
+
