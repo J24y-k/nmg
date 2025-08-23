@@ -1,6 +1,3 @@
-/* ===============================================================================================================================
- * 🎨 Design System; i like this method now because like this we nmo lomger have to vhange colors or font size section by section
- * =============================================================================================================================== */
 
 :root {
   /* Colors - Updated for a more chilled, relaxed tone */
@@ -18,7 +15,6 @@
 
   /* Typography - Font sizes reduced for a more balanced look */
   --font-family-primary: 'Inter', sans-serif;
-  --font-size-base: 0.95rem;
   --font-size-base: 0.9rem;
   --font-size-heading-lg: 2.5em;
   --font-size-heading-md: 1.5rem;
