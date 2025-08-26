@@ -143,9 +143,50 @@ top: -5px;
 right: -10px;
 }
 
+/* profile icon adjustments */
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 60px;
+  background: var(--card-bg, #111827);
+  border: 1px solid var(--card-border, #374151);
+  border-radius: 8px;
+  padding: 10px;
+  flex-direction: column;
+  min-width: 120px;
+  z-index: 1000;
+}
+
+.dropdown-menu.active {
+  display: flex;
+}
+
+.dropdown-menu a {
+  padding: 8px;
+  text-decoration: none;
+  color: var(--text-light);
+  border-radius: 5px;
+}
+
+.dropdown-menu a:hover {
+  background: var(--primary-dark, #1f2937);
+}
+
 @media (max-width: 800px) {
   .details-wrap { grid-template-columns: 1fr; }
   .product-grid {
 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+  .cart-icon { left: -40px; } /* Adjust as needed */
 }

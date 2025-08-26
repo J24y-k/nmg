@@ -554,6 +554,74 @@ a {
     transform: scale(1.8) translate(-28%, -28%);
 }
 
+/* Checkout Layout */
+.checkout-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 20px;
+}
+
+.checkout-left, .checkout-right {
+  background: var(--card-bg, #111827);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+.checkout-form button {
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* profile icon adjustments */
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 60px;
+  background: var(--card-bg, #111827);
+  border: 1px solid var(--card-border, #374151);
+  border-radius: 8px;
+  padding: 10px;
+  flex-direction: column;
+  min-width: 120px;
+  z-index: 1000;
+}
+
+.dropdown-menu.active {
+  display: flex;
+}
+
+.dropdown-menu a {
+  padding: 8px;
+  text-decoration: none;
+  color: var(--text-light);
+  border-radius: 5px;
+}
+
+.dropdown-menu a:hover {
+  background: var(--primary-dark, #1f2937);
+}
+
 /* ====================================
  * 📱 Media Queries
  * ==================================== */
