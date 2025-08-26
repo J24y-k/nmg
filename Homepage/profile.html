@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Profile - NMG Zembeta</title>
+ <link rel="stylesheet" href="../Product-page/checkout.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+ <div id="custom-cursor"></div>
+
+ <nav class="nav">
+ <div class="logo"><img src="../LOGO NMG.png" alt="Logo"></div>
+ <div class="nav-links" id="nav-links">
+ <a href="/Homepage/index.html">Home</a>
+ <a href="/About page/about.html">About</a>
+ <a href="/SERVICE PAGE/service.html">Services</a>
+ <a href="/Contact-page/contact.html">Contact</a>
+ <div class="profile-dropdown" id="profile-dropdown" style="display:none;">
+ <img id="profile-icon" class="profile-icon" src="https://via.placeholder.com/40" alt="Profile">
+ <div class="dropdown-menu" id="dropdown-menu">
+ <a href="profile.html">Profile</a>
+ <a href="cart.html">Cart</a>
+ <a href="#" id="logout">Logout</a>
+ </div>
+ </div>
+ </div>
+ </nav>
+
+ <main>
+ <section class="profile section">
+ <div class="container card">
+ <h2 class="section-title">Your Profile</h2>
+ <div class="profile-info">
+ <img id="profile-pic" class="profile-pic" src="https://via.placeholder.com/120" alt="Profile Picture">
+ <h3 id="profile-name">Loading...</h3>
+ <p id="profile-email"></p>
+ <button id="upload-pic" class="submit-button">Upload New Picture</button>
+ </div>
+
+ <!-- Purchase History Section -->
+ <div class="purchase-history">
+ <h3>Purchase History</h3>
+ <div id="history-list"></div>
+ </div>
+
+ <!-- Action Buttons -->
+ <div class="profile-actions">
+ <button id="profile-logout" class="submit-button">Logout</button>
+ <button id="delete-profile" class="delete-button">Delete Profile</button>
+ </div>
+ </div>
+ </section>
+ </main>
+
+ <script type="module" src="profile.js"></script>
+ <script>
+ document.addEventListener("DOMContentLoaded", function() {
+ document.body.classList.add("loaded");
+ });
+ </script>
+
+ <style>
+ .profile-icon {
+ width: 40px; height: 40px;
+ border-radius: 50%; cursor: pointer;
+ }
+ .dropdown-menu {
+ display: none; position: absolute;
+ right: 10px; top: 50px;
+ background: var(--card-bg, #111827);
+ border: 1px solid var(--card-border, #374151);
+ border-radius: 8px;
+ padding: 10px;
+ flex-direction: column;
+ min-width: 120px;
+ }
+ .dropdown-menu.active { display: flex; }
+ .dropdown-menu a {
+ padding: 8px; text-decoration: none;
+ color: var(--text-light); border-radius: 5px;
+ }
+ .dropdown-menu a:hover {
+ background: var(--primary-dark, #1f2937);
+ }
+ .profile-info {
+ text-align: center;
+ }
+ .profile-pic {
+ width: 120px; height: 120px;
+ border-radius: 50%; margin-bottom: 12px;
+ }
+ .purchase-history {
+ margin-top: 24px;
+ border-top: 1px solid var(--card-border);
+ padding-top: 16px;
+ }
+ .order-item {
+ margin-bottom: 16px;
+ padding: 12px;
+ background: var(--card-bg);
+ border-radius: 8px;
+ }
+ .order-item ul {
+ list-style: none;
+ padding: 0;
+ }
+ .profile-actions {
+ display: flex;
+ justify-content: center;
+ gap: 12px;
+ margin-top: 24px;
+ }
+ .delete-button {
+ background: #ef4444; /* Red for delete */
+ border: none;
+ padding: 12px 24px;
+ color: white;
+ border-radius: 50px;
+ cursor: pointer;
+ }
+ .delete-button:hover {
+ background: #dc2626;
+ }
+ </style>
+</body>
+</html>

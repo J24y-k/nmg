@@ -9,18 +9,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="">
   <div id="custom-cursor"></div>
 
   <nav class="nav">
-    <div class="logo">
-      <img src="../LOGO NMG.png" alt="Logo">
-    </div>
+    <div class="logo"><img src="../LOGO NMG.png" alt="Logo"></div>
     <div class="nav-links" id="nav-links">
       <a href="/Homepage/index.html">Home</a>
       <a href="/About page/about.html">About</a>
       <a href="/SERVICE PAGE/service.html">Services</a>
       <a href="/Contact-page/contact.html">Contact</a>
+
+      <!-- Sign In link (only visible when logged out) -->
+      <a href="/Homepage/signin.html" id="nav-signin">Sign In</a>
+
+      <!-- Profile dropdown (only visible when logged in) -->
+      <div class="profile-dropdown" id="profile-dropdown" style="display:none;">
+        <img id="profile-icon" class="profile-icon" src="https://via.placeholder.com/40" alt="Profile" />
+        <div class="dropdown-menu" id="dropdown-menu">
+          <a href="/Homepage/profile.html">Profile</a>
+          <a href="cart.html">Cart</a>
+          <a href="#" id="logout">Logout</a>
+        </div>
+      </div>
     </div>
     <div class="hamburger-menu" id="hamburger-menu">
       <div class="bar"></div><div class="bar"></div><div class="bar"></div>
@@ -63,6 +74,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="data.js"></script>
   <script src="products.js"></script>
+
+  <script type="module" src="/Homepage/firebase-auth.js"></script> <!-- For page guard -->
+  <script type="module" src="/Homepage/auth-ui.js"></script> <!-- For nav dropdown -->
+
+
   <script>
 document.addEventListener("DOMContentLoaded", function() {
     document.body.classList.add("loaded");

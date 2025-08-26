@@ -1,0 +1,215 @@
+/* Auth-specific styles; uses your existing design tokens from :root in index-style.css */
+
+.auth-body {
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+}
+
+.auth-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg) var(--space-md);
+  overflow: hidden;
+}
+
+.auth-bg {
+  position: absolute;
+  inset: 0;
+  background: url('/images/pexels-rethaferguson-4177708.jpg') no-repeat center/cover;
+  opacity: 0.4;
+  z-index: -2;
+}
+
+.auth-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(43,45,66,.7);
+  z-index: -1;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 480px;
+  padding: calc(var(--space-md) + 0.5rem);
+}
+
+.auth-title {
+  margin: 0 0 .25rem 0;
+  font-size: var(--font-size-heading-md);
+  text-align: center;
+}
+
+.auth-subtitle {
+  margin: 0 0 var(--space-md) 0;
+  text-align: center;
+  opacity: .9;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.input-group label {
+  font-weight: 700;
+  font-size: .95rem;
+}
+
+.input-group input {
+  padding: 12px 44px 12px 12px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--border-radius-sm);
+  background: var(--card-bg);
+  color: var(--text-light);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(46,196,182,.2);
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+@media (max-width: 640px) {
+  .input-row { grid-template-columns: 1fr; }
+}
+
+.has-toggle {
+  position: relative;
+}
+
+.toggle-visibility {
+  position: absolute;
+  right: 8px;
+  top: calc(50% + 6px);
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: .8;
+}
+
+.row {
+  display: flex;
+  gap: .75rem;
+}
+
+.between { justify-content: space-between; }
+.center { align-items: center; }
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox input {
+  width: 16px;
+  height: 16px;
+}
+
+.button--full {
+  width: 100%;
+}
+
+.oauth-button {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  background: var(--secondary-dark);
+  border: 1px solid var(--card-border);
+  padding: 12px;
+  border-radius: 9999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.oauth-button img {
+  width: 18px;
+  height: 18px;
+}
+
+.oauth-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin: var(--space-sm) 0;
+  opacity: .85;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: var(--card-border);
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.divider span {
+  padding: 0 .5rem;
+}
+
+.form-hint {
+  margin-top: .5rem;
+  text-align: center;
+  opacity: .9;
+}
+
+.link, .muted-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.link:hover, .muted-link:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.auth-error {
+  background: rgba(255, 87, 87, 0.12);
+  border: 1px solid rgba(255, 87, 87, 0.35);
+  color: #ffabab;
+  padding: .65rem .75rem;
+  border-radius: var(--border-radius-sm);
+  font-size: .95rem;
+}
+
+/* Active link in nav */
+.nav-links a.active {
+  color: var(--primary-color);
+  font-weight: 800;
+}

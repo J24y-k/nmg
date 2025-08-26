@@ -1,0 +1,27 @@
+{
+  "name": "nmg",
+  "version": "1.0.0",
+  "description": "to deal with later",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J24y-k/nmg.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/J24y-k/nmg/issues"
+  },
+  "homepage": "https://github.com/J24y-k/nmg#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1"
+  }
+}
